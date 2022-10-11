@@ -2,11 +2,10 @@
 name: coupons # yml文件名
  
 on:
-  push:
-    branches:
-      - main
-  schedule:   
-    - cron: '30 23 * * *'   # 定时运行的时间，国际标准时间，北京时间要+8
+  repository_dispatch:
+   types:
+     - webhook-1
+     - webhook-2
  
 jobs:
   run-coupons: # 任务名
