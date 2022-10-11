@@ -6,7 +6,7 @@ on:
     branches:
       - main
   schedule:   
-    - cron: '0 9 * * *'   # 定时运行的时间，国际标准时间，北京时间要+8
+    - cron: '30 23 * * *'   # 定时运行的时间，国际标准时间，北京时间要+8
  
 jobs:
   run-coupons: # 任务名
