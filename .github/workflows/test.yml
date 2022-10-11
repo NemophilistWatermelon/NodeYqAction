@@ -2,11 +2,7 @@
 name: coupons # yml文件名
  
 on:
-  repository_dispatch:
-   types:
-     - webhook-1
-     - webhook-2
- 
+   workflow_dispatch:
 jobs:
   run-coupons: # 任务名
     runs-on: ubuntu-latest
