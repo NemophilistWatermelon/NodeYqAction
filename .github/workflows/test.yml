@@ -22,3 +22,8 @@ jobs:
           npm install axios
           npm install cheerio   
           node ./index.js  # 要运行的js脚本，放在根目录下
+          git config user.name "937817514@qq.com"
+          git config user.password ll187903
+          git add .
+          git commit -m 'update'
+          git push
