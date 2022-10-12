@@ -57,7 +57,7 @@ class LoadHtmlAndFenXi {
     this.timeService = new GetNowDate();
     this.fileService = new ReadAndWriteFile();
   }
-  loadSecondHtml(html) {
+  loadSecondHtml(html, url) {
     let data = cheerio.load(html);
     const result = data("#content p").text();
     const orginText = data("#source").text();
@@ -67,6 +67,7 @@ class LoadHtmlAndFenXi {
       result: result,
       dataOrgin: orginText,
       fetchTime,
+      url,
     };
     this.fileService.writeFile(JSON.stringify(strData, null, 2), "result.json");
   }
@@ -105,19 +106,19 @@ class GetYiQing {
     this.loadHtmlService = new LoadHtmlAndFenXi();
   }
 
-  fetchSecond(data) {
+  fetchSecond(data, url) {
     const htmlFileName = "second.html";
     this.fileService.writeFile(data.data, htmlFileName);
-    console.log(data);
     this.loadHtmlService.loadSecondHtml(
-      this.fileService.readfile(htmlFileName)
+      this.fileService.readfile(htmlFileName),
+      url
     );
   }
 
   fetchSecondFileHtml(url) {
     let that = this;
     this.request.get(url, (data) => {
-      that.fetchSecond(data);
+      that.fetchSecond(data, url);
     });
   }
 
