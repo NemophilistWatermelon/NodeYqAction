@@ -2,7 +2,9 @@
 name: coupons # yml文件名
  
 on:
-   workflow_dispatch:
+  workflow_dispatch:
+  schedule: 
+    - cron: '30 23 * * *'
 jobs:
   run-coupons: # 任务名
     runs-on: ubuntu-latest
