@@ -64,7 +64,7 @@ class LoadHtmlAndFenXi {
     const fetchTime = new Date().toLocaleString();
     console.log("run");
     const strData = {
-      result: result,
+      result: result.replace(/(^\s*)|(\s*$)/g, ""),
       dataOrgin: orginText,
       fetchTime,
       url,
